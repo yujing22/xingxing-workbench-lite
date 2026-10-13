@@ -1731,6 +1731,13 @@ function bindEvents(){
   });
 }
 
+/* ====== 里程碑计数（简洁版无彩蛋弹窗，但同步模块需要这个数） ====== */
+const COMPLETED_COUNT_KEY = 'starschedule-completed-total-v1';
+function getCompletedTotal(){
+  const v = parseInt(localStorage.getItem(COMPLETED_COUNT_KEY)||'0', 10);
+  return isNaN(v) ? 0 : v;
+}
+
 /* ====== Cloud Sync (GitHub 私有仓库) ====== */
 function b64ToUtf8(b64){
   const bin = atob(String(b64||'').replace(/\s/g,''));
